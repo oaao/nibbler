@@ -5,8 +5,16 @@ celery + rabbitMQ task handling
 
 1. Install RabbitMQ
 
-```bash
-apt-get install rabbitmq-server
-```
+    ```
+    apt-get install rabbitmq-server
+    ```
 
-2. Install Celery in your virtual environment (or use the provided `Pipfile` and `Pipfile.lock`)
+2. Install Python dependencies (or use the provided `Pipfile` and `Pipfile.lock`):
+
+```bash
+# using pipenv
+pipenv install --dev
+
+# or
+pip install celery flower
+```
