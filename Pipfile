@@ -9,6 +9,7 @@ flower = "*"
 [packages]
 celery = "*"
 requests = "*"
+flower = "*"
 
 [requires]
 python_version = "3.7"
