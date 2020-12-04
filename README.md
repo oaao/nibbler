@@ -62,6 +62,42 @@ True
 >>> lf.ready()
 True
 >>> # without a timeout kwarg, the client waits for the task to finish synchronously
->>> l.get(timeout=1)
+>>> lf.get(timeout=1)
 ['random-img']
+```
+
+----
+
+## management & monitoring
+
+### flower
+
+Access `flower` in a browser, at the host & port running it.
+
+`flower` can be initialised in itself,
+```bash
+$ flower -A nibbler.app --port=5555
+```
+or through `celery` in order to specify additional inline configurations:
+
+```bash
+$ celery flower -A nibbler.app --address=127.0.0.1 --port=5555
+```
+
+```bash
+$ celery flower -A nibbler.app --broker=amqp://guest:guest@localhost:5672//
+```
+
+### rabbitMQ
+
+Access `rabbitmq`'s management interface in a browser, at the host & port (15672 by default) running it.
+
+First, confirm the management interface is enabled, and (if not) run the server again to load it as a plugin:
+
+```bash
+$ rabbitmq-plugins enable rabbitmq_management
+```
+
+```bash
+$ rabbitmq-server -detached
 ```
